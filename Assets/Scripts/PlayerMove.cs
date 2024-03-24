@@ -12,13 +12,21 @@ public class PlayerMove : MonoBehaviour
     public float Friction;
     public bool Grounded;
     public float MaxSpeed;
-
+    public Transform ColliderTransform;
+    public float LerpSpeed;
     void Start()
     {
 
     }
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S) || !Grounded )
+        {
+            ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, new Vector3(1f, 0.5f, 1f), Time.deltaTime * LerpSpeed);
+        }
+        else
+            ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, Vector3.one, Time.deltaTime * LerpSpeed) ;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -37,19 +45,17 @@ public class PlayerMove : MonoBehaviour
         if (Grounded == false)
         {
             _speedMultiplier = 0.2f;
-
+            if (rb.velocity.x > MaxSpeed && Input.GetAxis("Horizontal") > 0)
+            {
+                _speedMultiplier = 0;
+            }
+            if (rb.velocity.x < -MaxSpeed && Input.GetAxis("Horizontal") < 0)
+            {
+                _speedMultiplier = 0;
+            }
         }
-        if (rb.velocity.x > MaxSpeed && Input.GetAxis("Horizontal") > 0)
-        {
-            _speedMultiplier = 0;
-        }
-        if (rb.velocity.x < -MaxSpeed && Input.GetAxis("Horizontal") < 0)
-        {
-            _speedMultiplier = 0;
-        }
-        {
-
-        }
+        
+      
         rb.AddForce(Input.GetAxis("Horizontal") * MoveSpeed * _speedMultiplier, 0, 0, ForceMode.VelocityChange);
         if (Grounded)
         {
