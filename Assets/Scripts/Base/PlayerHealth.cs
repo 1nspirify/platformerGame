@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int Health = 5;
     public int MaxHealth = 8;
     private bool _invulnerable = false;
+
+    public UnityEvent EventOnTakeDamage;
     public AudioSource AddHealthSound;
-    public AudioSource TakeDamageSound;
+    /* public AudioSource TakeDamageSound;*/
 
     public HealthUI HealthUI;
+
+    /* public DamageScreen DamageScreen;
+     public Blink Blink;*/
 
     private void Start()
     {
@@ -32,9 +38,11 @@ public class PlayerHealth : MonoBehaviour
         }
         _invulnerable = true;
         Invoke("StopInvulnerable", 1f);
-        TakeDamageSound.Play();
+        /*TakeDamageSound.Play();*/
         HealthUI.DisplayHealth(Health);
-
+        /*    DamageScreen.StartEffect();
+            Blink.StartBlink();*/
+        EventOnTakeDamage.Invoke();
     }
 
     void StopInvulnerable()
