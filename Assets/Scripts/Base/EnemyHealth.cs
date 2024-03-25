@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     public UnityEvent EventOnTakeDamage;
-    public int Health;
+    public int Health = 1;
 
     public void TakeDamage(int damageValue)
     {
