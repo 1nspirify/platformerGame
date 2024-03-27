@@ -6,6 +6,7 @@ public class Pointer : MonoBehaviour
 {
     public Transform Aim;
     public Camera PlayerCamera;
+    public Transform BodyTransform;
 
     // Update is called once per frame
     void LateUpdate()
@@ -21,6 +22,9 @@ public class Pointer : MonoBehaviour
 
         Vector3 toAim = Aim.position - transform.position;
         transform.rotation = Quaternion.LookRotation(toAim);
+       
+        float angleY = Aim.position.x > transform.position.x ? -45f : 45f;
+        BodyTransform.rotation = Quaternion.Lerp(BodyTransform.rotation, Quaternion.Euler(Vector3.up * angleY), 10f * Time.deltaTime);
        
     }
 }

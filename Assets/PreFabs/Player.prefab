@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538333573442005424}
   m_Layer: 0
-  m_Name: Body
+  m_Name: PlayerGrx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,6 @@ Transform:
   m_Children:
   - {fileID: 8976603378490493949}
   - {fileID: 6398839816749376004}
-  - {fileID: 7921215329063558579}
   - {fileID: 3296870183629148541}
   - {fileID: 26348855337612411}
   m_Father: {fileID: 1125734050327580463}
@@ -479,6 +478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7921215329063558579}
   - {fileID: 538333573442005424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -555,11 +555,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   MaxHealth: 8
+  EventOnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   AddHealthSound: {fileID: 807142384150046266}
-  TakeDamageSound: {fileID: 129906669430832545}
   HealthUI: {fileID: 0}
-  DamageScreen: {fileID: 0}
-  Blink: {fileID: 4105548815066027904}
 --- !u!114 &4105548815066027904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4609044420375298139}
-  m_Father: {fileID: 538333573442005424}
+  m_Father: {fileID: 1125734050327580463}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &472168303254147628
 MonoBehaviour:
@@ -943,6 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aim: {fileID: 0}
   PlayerCamera: {fileID: 0}
+  BodyTransform: {fileID: 538333573442005424}
 --- !u!1001 &2327035192784296949
 PrefabInstance:
   m_ObjectHideFlags: 0
