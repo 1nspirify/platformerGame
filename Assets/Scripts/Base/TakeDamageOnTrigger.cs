@@ -5,7 +5,7 @@ using UnityEngine;
 public class TakeDamageOnTrigger : MonoBehaviour
 {
     public EnemyHealth EnemyHealth;
-   /* public bool DieOnAnyCollision;*/
+    public bool DieOnAnyCollision;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,11 +18,15 @@ public class TakeDamageOnTrigger : MonoBehaviour
             }
 
         }
-      /*  if (DieOnAnyCollision == true)
+        if (DieOnAnyCollision == true)
         {
-            EnemyRabbitHealth.TakeDamage(10000);
+            if(other.isTrigger == false) 
+            {
+                EnemyHealth.TakeDamage(10000);
+            }
+           
         }
-*/
+
     }
 
 }
