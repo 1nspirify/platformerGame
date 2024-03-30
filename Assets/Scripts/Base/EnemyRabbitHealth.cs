@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyRabbitHealth : MonoBehaviour
 {
     public UnityEvent EventOnTakeDamage;
     public int Health = 5;

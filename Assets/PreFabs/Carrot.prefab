@@ -55,11 +55,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2595470731055203461}
-  - component: {fileID: 1821152708415599338}
   - component: {fileID: 5326208769012733747}
   - component: {fileID: 4988275334570823379}
   - component: {fileID: 4929907701044224478}
   - component: {fileID: 4235732400290758897}
+  - component: {fileID: 744406979981451866}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -83,22 +83,6 @@ Transform:
   - {fileID: 7185135400163624988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1821152708415599338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6887264717459402265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b1a5db0dcadcb4baea494d237ebc11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventOnTakeDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  Health: 1
 --- !u!114 &5326208769012733747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826a9fdeb64503148a279370fdfbb147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: {fileID: 1821152708415599338}
-  DieOnAnyCollision: 0
+  EnemyHealth: {fileID: 744406979981451866}
+  DieOnAnyCollision: 1
 --- !u!114 &4235732400290758897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +151,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 4988275334570823379}
   Speed: 8
+--- !u!114 &744406979981451866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887264717459402265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca5a5231d27c404fb6055548571a82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventOnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  Health: 1
 --- !u!1 &9118356322405516479
 GameObject:
   m_ObjectHideFlags: 0

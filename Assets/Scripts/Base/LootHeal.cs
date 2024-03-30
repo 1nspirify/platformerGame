@@ -10,9 +10,10 @@ public class LootHeal : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if (other.attachedRigidbody.GetComponent<PlayerHealth>())
+        PlayerHealth playerHealth = other.attachedRigidbody.GetComponent<PlayerHealth>();
+        if (playerHealth)
         {
-            other.attachedRigidbody.GetComponent<PlayerHealth>().AddHealth(HealthValue);
+            playerHealth.AddHealth(HealthValue);
             Destroy(gameObject);
         }
     }

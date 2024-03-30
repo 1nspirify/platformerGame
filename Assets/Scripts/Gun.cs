@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
                 newBullet.GetComponent<Rigidbody>().velocity = Spawn.forward * BulletSpeed;
                 ShotSound.Play();
                 Flash.SetActive(true);
-                Invoke("HideFlash", 0.12f);
+                Invoke(nameof(HideFlash), 0.12f);
             }
         }
 

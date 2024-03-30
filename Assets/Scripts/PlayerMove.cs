@@ -69,7 +69,7 @@ public class PlayerMove : MonoBehaviour
     {
         for (int i = 0; i < collision.contactCount; i++)
         {
-            float angle = Vector3.Angle(collision.contacts[i].normal, Vector3.up);
+            float angle = Vector3.Angle(collision.GetContact(i).normal, Vector3.up);
             if (angle < 45f)
             {
                 Grounded = true;
