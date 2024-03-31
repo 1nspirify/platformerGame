@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rabbit : MonoBehaviour
+public class SetTriggerEveryNSeconds : MonoBehaviour
 {
-    public float AttackPeriod = 7f;
+    public float Period = 7f;
     public Animator Animator;
     private float _timer;
- 
 
-   
+    public string TriggerName = "Attack";
+
+
+
     void Update()
     {
         _timer += Time.time;
-        if (_timer > AttackPeriod)
+        if (_timer > Period)
         {
             _timer = 0;
-            Animator.SetTrigger("Attack");
+            Animator.SetTrigger(TriggerName);
         }
     }
 }

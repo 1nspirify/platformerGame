@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0258c0c7331ca46bcabebd9732906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyRabbitHealth: {fileID: 6952005686811519388}
+  EnemyHealth: {fileID: 9100369926943667581}
+  DieOnAnyCollision: 0
 --- !u!114 &1593852461805144285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,9 +177,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5891630398924239005}
   - component: {fileID: 873528842584052177}
-  - component: {fileID: 6952005686811519388}
   - component: {fileID: 5270331072423355267}
   - component: {fileID: 8022085863211532649}
+  - component: {fileID: 9100369926943667581}
+  - component: {fileID: -8983003664151983328}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -215,36 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec7f8a2e6fb9e64c97840ad6cb8d79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPeriod: 7
+  Period: 7
   Animator: {fileID: 3519700856855842711}
---- !u!114 &6952005686811519388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7211220480163404482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c493d8f8db94a914cac04437e5ec8bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventOnTakeDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5270331072423355267}
-        m_TargetAssemblyTypeName: Blink, Assembly-CSharp
-        m_MethodName: StartBlink
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Health: 5
+  TriggerName: Attack
 --- !u!114 &5270331072423355267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,8 +260,48 @@ MonoBehaviour:
   LeftEuler: {x: 0, y: -30, z: 0}
   RightEuler: {x: 0, y: 150, z: 0}
   RotationSpeed: 5
-  _playerTransform: {fileID: 0}
   _targetEuler: {x: 0, y: 0, z: 0}
+--- !u!114 &9100369926943667581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211220480163404482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca5a5231d27c404fb6055548571a82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventOnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5270331072423355267}
+        m_TargetAssemblyTypeName: Blink, Assembly-CSharp
+        m_MethodName: StartBlink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Health: 5
+--- !u!114 &-8983003664151983328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211220480163404482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eadf8e5ed46f734eadca02c9c352190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceToActivate: 20
 --- !u!1001 &3710284412229723593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,8 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2655a43fe7cacd345a5e70a30b717636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarrotPrefab: {fileID: 6887264717459402265, guid: 101e5caa16fa9c3489c9f96e2a1d7f7e,
-    type: 3}
+  Prefab: {fileID: 6887264717459402265, guid: 101e5caa16fa9c3489c9f96e2a1d7f7e, type: 3}
   Spawn: {fileID: 8037323834588145212}
 --- !u!23 &5573226385604185553 stripped
 MeshRenderer:

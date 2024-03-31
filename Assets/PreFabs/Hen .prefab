@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 9112589951379229368}
   - component: {fileID: 4672961118788334745}
   - component: {fileID: 4849942871662850691}
+  - component: {fileID: 6345127854080622249}
   m_Layer: 0
   m_Name: 'Hen '
   m_TagString: Untagged
@@ -389,6 +390,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Health: 5
+--- !u!114 &6345127854080622249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103225742392907548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eadf8e5ed46f734eadca02c9c352190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceToActivate: 20
 --- !u!1 &8302692229130868629
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class RotateToPlayer : MonoBehaviour
 
     public float RotationSpeed = 5f;
 
-    public Transform _playerTransform;
+    private Transform _playerTransform;
     public Vector3  _targetEuler;
     // Start is called before the first frame update
     void Start()

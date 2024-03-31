@@ -7,7 +7,7 @@ public class Rocket : MonoBehaviour
     public float Speed;
     public float RotationSpeed;
 
-    private Transform _playerTransform;
+    public Transform _playerTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +17,13 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Time.deltaTime * transform.forward * Speed;
-        Vector3 toPlayer = _playerTransform.position - transform.position;
-        Quaternion targetRotation = Quaternion.LookRotation(toPlayer, Vector3.forward);
+        if (_playerTransform != null)
+        {
+            transform.position += Time.deltaTime * transform.forward * Speed;
+            Vector3 toPlayer = _playerTransform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(toPlayer, Vector3.forward);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime*RotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
+        }
     }
 }
